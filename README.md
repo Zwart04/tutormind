@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TutorMind
 
-## Getting Started
+Workspace materi belajar dan tutor dengan penyedia AI opsional; menggantikan placeholder Inventa.
 
-First, run the development server:
+- [Open application](https://tutormind-app.zwart.qzz.io)
+- [Project catalog](https://projects-app.zwart.qzz.io)
+- [Source](https://github.com/Zwart04/tutormind)
 
-```bash
+## Development
+
+Requires Node.js 22 and npm.
+
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Validation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+npm run typecheck
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Production builds check TypeScript rather than suppressing errors. GitHub Actions repeats the build and type check.
 
-## Learn More
+## Free deployment
 
-To learn more about Next.js, take a look at the following resources:
+```sh
+npx wrangler login
+npm run build
+npm run typecheck
+npx opennextjs-cloudflare build --skipNextBuild
+npx wrangler deploy
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The deployment configuration is `wrangler.jsonc`. Use your own Cloudflare account and domain when forking. `tutormind-app.zwart.qzz.io` belongs to the Zwart04 deployment.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Data and integrations
 
-## Deploy on Vercel
+This edition is a browser workspace. Example records are demonstration data. Local storage belongs to this browser and is not a shared database or secure server account. Export important records before clearing browser data. A configured AI provider, WhatsApp server, or other external integration is required for those services; a hosted page alone does not activate them.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The free deployment contains no paid provider keys. It uses Cloudflare Workers with static assets or OpenNext as appropriate. Cloudflare free-plan limits apply. Original documentation is retained under `docs/README-before-rebuild.md` when present as historical material, not a validation record.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Consolidated applications
+
+- `inventa`: superseded by this application. Original Git history is preserved in its archived repository and the rebuild backup.
