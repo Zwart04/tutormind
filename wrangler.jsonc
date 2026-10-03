@@ -24,6 +24,14 @@
     {
       "pattern": "tutormind-app.zwart.qzz.io",
       "custom_domain": true
+    },
+    {
+      "pattern": "courseforge-app.zwart.qzz.io",
+      "custom_domain": true
+    },
+    {
+      "pattern": "inventa-app.zwart.qzz.io",
+      "custom_domain": true
     }
   ]
 }
